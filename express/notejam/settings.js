@@ -1,17 +1,15 @@
 var settings = {
   development: {
-    db: "notejam.db",
-    dsn: "sqlite://notejam.db"
+    dbConnectionString: process.env.DB_CONNECTION || 'mysql://notejam:Airaenoj8Ohk8chienuog9icheet8eiy@localhost:3306/notejam'
   },
   test: {
-    db: "notejam_test.db",
-    dsn: "sqlite://notejam_test.db"
+    dbConnectionString: process.env.DB_CONNECTION || 'mysql://notejam:Airaenoj8Ohk8chienuog9icheet8eiy@localhost:3306/notejam'
   }
 };
 
 
-var env = process.env.NODE_ENV
+var env = process.env.NODE_ENV;
 if (!env) {
-  env = 'development'
-};
+  env = 'development';
+}
 module.exports = settings[env];

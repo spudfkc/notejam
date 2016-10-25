@@ -1,6 +1,7 @@
 module.exports = {
   formatFormErrors: function(errors) {
     formatted = {};
+    console.log('ERRORS: ', errors);
     errors.forEach(function(e) {
       formatted[e.param] = e.msg;
     });
@@ -9,6 +10,7 @@ module.exports = {
 
   formatModelErrors: function(errors) {
     formatted = {};
+    console.log("ERRORS: ", errors);
     errors.forEach(function(e) {
       formatted[e.property] = e.msg;
     });

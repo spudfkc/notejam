@@ -174,7 +174,7 @@ passport.use(new LocalStrategy(
 ));
 
 function findByUsername(username, fn) {
-  orm.connect(settings.dsn, function(err, db) {
+  orm.connect(settings.dbConnectionString, function(err, db) {
     db.load("../models", function (err) {
       var User = db.models.users;
       db.models.users.find({email: username}, function (err, users) {
@@ -189,7 +189,7 @@ function findByUsername(username, fn) {
 }
 
 function findById(id, fn) {
-  orm.connect(settings.dsn, function(err, db) {
+  orm.connect(settings.dbConnectionString, function(err, db) {
     db.load("../models", function (err) {
       var User = db.models.users;
       User.get(id, function (err, user) {

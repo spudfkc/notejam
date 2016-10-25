@@ -36,11 +36,11 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // DB configuration
-var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database(settings.db);
+var mysql = require('mysql');
+var db = mysql.createConnection(settings.dbConnectionString);
 
 orm.settings.set("instance.returnAllErrors", true);
-app.use(orm.express(settings.dsn, {
+app.use(orm.express(settings.dbConnectionString, {
   define: function (db, models, next) {
     db.load("./models", function (err) {
       models.User = db.models.users;
