@@ -43,6 +43,8 @@ describe('Note', function() {
         .post(config.url('/notes/1/edit'))
           .send({name: 'New name', text: 'New text'})
           .end(function(error, res){
+            console.log('errors', error)
+            console.log('response', res)
             res.redirects.should.eql([config.url('/notes/1')]);
             res.text.should.containEql('Note is successfully updated');
             done();

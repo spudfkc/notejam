@@ -1,19 +1,21 @@
 module.exports = {
   formatFormErrors: function(errors) {
     formatted = {};
-    console.log('ERRORS: ', errors);
-    errors.forEach(function(e) {
-      formatted[e.param] = e.msg;
-    });
+    if (errors) {
+      errors.forEach(function(e) {
+        formatted[e.param] = e.msg;
+      });
+    }
     return formatted;
   },
 
   formatModelErrors: function(errors) {
     formatted = {};
-    console.log("ERRORS: ", errors);
-    errors.forEach(function(e) {
-      formatted[e.property] = e.msg;
-    });
+    if (errors) {
+      errors.forEach(function(e) {
+        formatted[e.property] = e.msg;
+      });
+    }
     return formatted;
   },
 
