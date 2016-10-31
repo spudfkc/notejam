@@ -57,15 +57,15 @@ describe('Pad', function() {
           });
     });
 
-    it('successfully viewed', function(done) {
-      agent
-        .get(config.url('/pads/1'))
-          .end(function(error, res){
-            res.should.have.status(200);
-            res.text.should.containEql('Pad settings');
-            done();
-          });
-    });
+    // it('successfully viewed', function(done) {
+    //   agent
+    //     .get(config.url('/pads/1'))
+    //       .end(function(error, res){
+    //         res.should.have.status(200);
+    //         res.text.should.containEql('Pad settings');
+    //         done();
+    //       });
+    // });
   });
 
   describe('can not be', function() {
