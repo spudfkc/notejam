@@ -3,6 +3,8 @@
 SCRIPT_DIR=$(dirname $0)
 #cd $(dirname $SCRIPT_DIR)/ansible
 
+ansible-vault decrypt --output= terraform.tfstate terraform.tfstate.encrypted
+
 INVENTORY="--inventory-file=$(which terraform-inventory)"
 
 if [[ "$1" == "db.yml" ]]

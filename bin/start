@@ -2,6 +2,7 @@
 
 command -v terraform
 command -v ansible-playbook
+command -v terraform-inventory
 
 SCRIPT_DIR=$(dirname $0)
 cd $SCRIPT_DIR/../terraform

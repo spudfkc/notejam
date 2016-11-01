@@ -19,6 +19,6 @@ deployment:
   production:
     branch: production
     commands:
-      - ./bin/deploy.sh:
+      - ../bin/deploy.sh:
           pwd: ansible
 
