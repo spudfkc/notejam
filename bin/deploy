@@ -3,7 +3,11 @@
 SCRIPT_DIR=$(dirname $0)
 #cd $(dirname $SCRIPT_DIR)/ansible
 
-ansible-vault decrypt --output= terraform.tfstate terraform.tfstate.encrypted
+ansible-vault \
+    decrypt \
+    --output=terraform.tfstate \
+    --vault-password-file vault-password \
+    terraform.tfstate.encrypted
 
 INVENTORY="--inventory-file=$(which terraform-inventory)"
 

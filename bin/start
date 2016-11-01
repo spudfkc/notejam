@@ -2,7 +2,22 @@
 
 command -v terraform
 command -v ansible-playbook
-command -v terraform-inventory
 
 SCRIPT_DIR=$(dirname $0)
 cd $SCRIPT_DIR/../terraform
+
+if [[ -f "terraform.tfstate" ]]
+then
+    echo "No tfstate file found - a new one will be created."
+    read -p "Continue? [y/N]" -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]
+    then
+        exit 1
+    fi
+
+    terraform apply
+
+    cd $SCRIPT_DIR/../ansible
+    ../bin/deploy
+fi
