@@ -1,7 +1,8 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 
 SCRIPT_DIR=$(dirname $0)
-#cd $(dirname $SCRIPT_DIR)/ansible
+
+echo "${VAULT_PASSWORD}" > vault-password
 
 ansible-vault \
     decrypt \
@@ -15,9 +16,6 @@ if [[ "$1" == "db.yml" ]]
 then
     INVENTORY="--inventory-file=./inventory"
 fi
-
-echo "${VAULT_PASSWORD}" > vault-password
-
 
 ansible-playbook \
     $INVENTORY \
