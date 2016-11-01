@@ -20,6 +20,7 @@ The `terraform` directory contains all necessary terraform files.
 
 The `ansible` directory contains all the ansible playbooks and roles used for deployment.
 The main playbook is `site.yml` that will deploy notejam to a server. The `db.yml` playbook is meant to be run once to install the database fixtures.
+The `secrets.yml` file is an ansible-vault encrypted file that contains all secrets necessary for the 
 
 Note: the `inventory` file used during the `db.yml` playbook will need a server specified.
 Note: the terraform.tfstate.encrypted file will need to be updated when the tfstate changes.
