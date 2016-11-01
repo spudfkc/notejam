@@ -122,4 +122,7 @@ resource "aws_db_instance" "notejam-db" {
     username               = "${var.notejam_db_user}"
     password               = "${var.notejam_db_password}"
     vpc_security_group_ids = ["${aws_security_group.allow_internal.id}"]
+    backup_retention_period = 3
+    apply_immediately      = true
+    backup_window          = "04:00-04:30"
 }
