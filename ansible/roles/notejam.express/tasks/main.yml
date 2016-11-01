@@ -17,7 +17,7 @@
   become_user: notejam
 
 - name: Install node dependencies
-  npm: path=/home/notejam/app/express/notejam
+  npm: path=/home/notejam/app/notejam/express/notejam
   become: yes
   become_user: notejam
 
