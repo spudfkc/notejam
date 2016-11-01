@@ -15,7 +15,7 @@ INVENTORY="--inventory-file=$SCRIPT_DIR/../ansible/terraform-inventory"
 
 ansible-playbook \
     $INVENTORY \
-    --private-key=~/.ssh/id_rsa \
+    --private-key=~/.ssh/id_notejam \
     --user=ubuntu \
     -c paramiko \
     -e @secrets.yml \
