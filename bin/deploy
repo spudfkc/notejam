@@ -7,7 +7,7 @@ echo "${VAULT_PASSWORD}" > vault-password
 ansible-vault \
     decrypt \
     --output=terraform.tfstate \
-    --vault-password-file vault-password \
+    --vault-password-file=vault-password \
     terraform.tfstate.encrypted
 
 INVENTORY="--inventory-file=$(which terraform-inventory)"
