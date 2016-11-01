@@ -1,0 +1,33 @@
+---
+
+- name: Install git
+  package: name={{ item }} state=latest
+  with_items:
+    - git
+    - make
+    - gcc
+    - g++
+
+- name: Create user for notejam
+  user: name=notejam state=present
+
+- name: Update notejam repo
+  git: repo=https://github.com/spudfkc/notejam.git dest=/home/notejam/app version=production
+  become: yes
+  become_user: notejam
+
+- name: Install node dependencies
+  npm: path=/home/notejam/app/express/notejam
+  become: yes
+  become_user: notejam
+
+- name: Make services directory
+  file: name=/usr/lib/systemd/system state=directory
+
+- name: Set up Systemd service
+  template: src="{{ item }}" dest=/usr/lib/systemd/system/notejam.service owner=root group=root
+  with_items:
+    - notejam.service
+
+- name: Enable notejam service
+  command: systemctl enable notejam

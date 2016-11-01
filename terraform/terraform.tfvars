@@ -1,0 +1,5 @@
+aws_access_key = "AKIAIOHSUMLWPPUBAYTQ"
+aws_secret_key = "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"
+notejam_db_user = "testuser"
+notejam_db_password = "testpassword"
+key_pair_name = "macbook-pro"

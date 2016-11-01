@@ -1,0 +1,16 @@
+---
+# This Playbook would deploy the whole mongodb cluster with replication and sharding.
+
+- hosts: all
+  sudo: yes
+  roles:
+  - role: geerlingguy.security
+  - role: amaabca.loggly_tls
+
+- hosts: all
+  sudo: yes
+  roles:
+  - role: geerlingguy.nodejs
+  - role: notejam.express
+
+
