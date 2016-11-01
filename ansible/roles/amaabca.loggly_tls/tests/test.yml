@@ -1,0 +1,9 @@
+---
+- hosts: all
+  remote_user: root
+  vars:
+    secrets:
+      loggly:
+        token: yourlogglytokenhere
+  roles:
+    - loggly_tls

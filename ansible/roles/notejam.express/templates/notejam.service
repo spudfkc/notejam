@@ -1,0 +1,13 @@
+[Unit]
+Description=Notejam Process Manager
+
+[Service]
+User=notejam
+WorkingDirectory=/home/notejam/app/express/notejam
+ExecStart=/bin/bash -c "./node_modules/.bin/pm2 start --no-daemon bin/www"
+Environment=DEBUG=*
+Environment=DB_CONNECTION=mysql://{{ root_db_user }}:{{ root_db_password }}@{{ app_db_host }}:3306/{{ app_db_name }}
+
+[Install]
+WantedBy=multi-user.target
+

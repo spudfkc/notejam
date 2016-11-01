@@ -1,7 +1,24 @@
 
 machine:
+  node:
+    version: 7.0.0
   environment:
     NODE_ENV: test
 
-general:
-  build_dir: express/notejam
+dependencies:
+  override:
+    - npm install:
+        pwd: notejam/express/notejam
+
+test:
+  override:
+    - npm test:
+        pwd: notejam/express/notejam
+
+deployment:
+  production:
+    branch: production
+    commands:
+      - ./bin/deploy.sh:
+          pwd: ansible
+

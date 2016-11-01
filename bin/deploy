@@ -1,0 +1,25 @@
+#!/bin/bash -e
+
+SCRIPT_DIR=$(dirname $0)
+#cd $(dirname $SCRIPT_DIR)/ansible
+
+INVENTORY="--inventory-file=$(which terraform-inventory)"
+
+if [[ "$1" == "db.yml" ]]
+then
+    INVENTORY="--inventory-file=./inventory"
+fi
+
+echo "${VAULT_PASSWORD}" > vault-password
+
+
+ansible-playbook \
+    $INVENTORY \
+    --private-key=~/.ssh/id_rsa \
+    --user=ubuntu \
+    -c paramiko \
+    -e @secrets.yml \
+    --vault-password-file vault-password \
+    -vvv \
+    site.yml
+
