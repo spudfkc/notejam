@@ -31,3 +31,7 @@
 
 - name: Enable notejam service
   command: systemctl enable notejam
+
+- name: Restart notejam service
+  command: service notejam restart
+
