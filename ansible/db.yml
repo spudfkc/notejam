@@ -4,7 +4,7 @@
     - name: test
       command: node --version
     - name: Run DB Fixtures
-      command: node db2.js
+      command: npm fixtures
       become: yes
       become_user: notejam
       args:
