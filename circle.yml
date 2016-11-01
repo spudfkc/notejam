@@ -22,6 +22,10 @@ deployment:
     branch: production
     commands:
       - pip install ansible
+      - wget https://github.com/adammck/terraform-inventory/releases/download/v0.6.1/terraform-inventory_v0.6.1_linux_amd64.zip
+          pwd: ansible
+      - unzip terraform-inventory_v0.6.1_linux_amd64.zip
+          pwd: ansible
       - ../bin/deploy:
           pwd: ansible
 

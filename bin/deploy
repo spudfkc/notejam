@@ -10,12 +10,8 @@ ansible-vault \
     --vault-password-file=vault-password \
     terraform.tfstate.encrypted
 
-INVENTORY="--inventory-file=$(which terraform-inventory)"
+INVENTORY="--inventory-file=./ansible/terraform-inventory"
 
-if [[ "$1" == "db.yml" ]]
-then
-    INVENTORY="--inventory-file=./inventory"
-fi
 
 ansible-playbook \
     $INVENTORY \
