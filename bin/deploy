@@ -10,7 +10,7 @@ ansible-vault \
     --vault-password-file=vault-password \
     terraform.tfstate.encrypted
 
-INVENTORY="--inventory-file=./ansible/terraform-inventory"
+INVENTORY="--inventory-file=$SCRIPT_DIR/../ansible/terraform-inventory"
 
 
 ansible-playbook \
