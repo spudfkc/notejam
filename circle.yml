@@ -1,5 +1,7 @@
 
 machine:
+  python:
+    version: 2.7.5
   node:
     version: 7.0.0
   environment:
@@ -19,6 +21,7 @@ deployment:
   production:
     branch: production
     commands:
-      - ../bin/deploy.sh:
+      - pip install ansible
+      - ../bin/deploy:
           pwd: ansible
 
